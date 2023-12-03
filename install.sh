@@ -85,7 +85,7 @@ prompt_confirm "This will install the dotfiles in this repo. Continue?"
 if ! command -v brew &> /dev/null
 then
     echo "Installing homebrew..."
-    NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    sudo NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
 # install homebrew apps
