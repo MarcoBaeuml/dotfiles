@@ -4,6 +4,7 @@ apps=('git' 'fish')
 cask_apps=('alfred' 'rectangle' 'itsycal' 'mac-mouse-fix' 'visual-studio-code' 'iterm2' 'utm' 'microsoft-teams' 'microsoft-remote-desktop' \
 'licecap' 'licecap' 'telegram' 'whatsapp' 'brave-browser' 'openvpn-connect' 'spotify' 'aldente')
 dock_apps=('System Settings' 'Brave Browser' 'Visual Studio Code' 'Spotify' 'iTerm' 'Telegram' 'WhatsApp')
+app_store_apps=( 'Yoink' 'WireGuard' 'Pixelmator Pro')
 
 defaults=(\
 '-g ApplePressAndHoldEnabled -bool false' \
@@ -33,9 +34,8 @@ defaults=(\
 
 manual_steps=(\
 'swap control and caps lock'\
-'install apps from App Store (yoink, wireguard, pixelmator pro)'\
 'adjust Menu Bar (screenshot ) & configure Itsycal (format: "       EEEE, dd.MM | HH:mm")'\
-'configure Fidner sidebar (screenshot)'\
+'configure Finder sidebar (screenshot)'\
 'go through every app and configure it'\
 'remove every Widget (click on clock)'\
 )
@@ -110,11 +110,11 @@ if ! grep -Fxq "$(which fish)" /etc/shells; then
 fi
 chsh -s $(which fish)
 
-# show manuel steps
-echo "Please do the following steps manually:"
-for step in "${manual_steps[@]}"
+# install app store apps
+echo "Please install the following app store apps:"
+for app in "${app_store_apps[@]}"
 do
-    echo - $step
+    echo - $app
 done
 
 prompt_confirm "Continue? Defaults will now be applied."
@@ -133,6 +133,13 @@ for app in "${dock_apps[@]}"
 do
     echo "Adding $app to the dock..."
     add_app_to_dock "/$app.app"
+done
+
+# show manuel steps
+echo "Please do the following steps manually:"
+for step in "${manual_steps[@]}"
+do
+    echo - $step
 done
 
 echo "finished"
