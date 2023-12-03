@@ -14,6 +14,7 @@ defaults=(\
 'com.apple.dock orientation -string left' \
 'com.apple.dock autohide-delay -int 0' \
 'com.apple.dock autohide-time-modifier -float 0.8' \
+'defaults write com.apple.dock "show-recents" -bool "false" && killall Dock' \
 'com.apple.finder AppleShowAllFiles -bool true' \
 'com.apple.finder FXEnableExtensionChangeWarning -bool false' \
 'com.apple.finder FXPreferredViewStyle -string clmv' \
@@ -111,8 +112,9 @@ do
 done
 
 # Make fish the default shell
+echo "Making fish the default shell..."
 if ! grep -Fxq "$(which fish)" /etc/shells; then
-    echo $(which fish) >> /etc/shells
+    sudo echo $(which fish) >> /etc/shells
 fi
 chsh -s $(which fish)
 
