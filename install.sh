@@ -34,11 +34,11 @@ defaults=(\
 )
 
 manual_steps=(\
-'swap control and caps lock'\
-'adjust Menu Bar (screenshot ) & configure Itsycal (format: "       EEEE, dd.MM | HH:mm")'\
-'configure Finder sidebar (screenshot)'\
-'go through every app and configure it'\
-'remove every Widget (click on clock)'\
+'swap control and caps lock' \
+'adjust Menu Bar (screenshot ) & configure Itsycal (format: "       EEEE, dd.MM | HH:mm")' \
+'configure Finder sidebar (screenshot)' \
+'go through every app and configure it' \
+'remove every Widget (click on clock)' \
 )
 
 prompt_confirm() {
