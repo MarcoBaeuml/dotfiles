@@ -79,11 +79,6 @@ add_app_to_dock() {
     defaults write com.apple.dock persistent-apps -array-add "<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>$app_path</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>"
 }
 
-if [ $EUID != 0 ]; then
-    echo "Installation script has to be called with root permissions!"
-    exit 1
-fi
-
 prompt_confirm "This will install the dotfiles in this repo. Continue?"
 
 # install homebrew
