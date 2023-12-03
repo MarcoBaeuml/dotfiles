@@ -85,7 +85,7 @@ prompt_confirm "This will install the dotfiles in this repo. Continue?"
 if ! command -v brew &> /dev/null
 then
     echo "Installing homebrew..."
-    sudo -H NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
 # install homebrew apps
@@ -94,14 +94,14 @@ fi
 for app in "${apps[@]}"
 do
     echo "Installing $app..."
-    sudo -H brew install $app
+    brew install $app
 done
 
 # install cask apps
 for app in "${cask_apps[@]}"
 do
     echo "Installing cask $app..."
-    sudo -H brew install --cask $app
+    brew install --cask $app
 done
 
 # Make fish the default shell
