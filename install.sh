@@ -31,7 +31,7 @@ defaults=(\
 'NSGlobalDomain com.apple.keyboard.fnState -bool true' \
 )
 
-manuel_steps=(\
+manual_steps=(\
 'swap control and caps lock'\
 'install apps from App Store (yoink, wireguard, pixelmator pro)'\
 'adjust Menu Bar (screenshot ) & configure Itsycal (format: "       EEEE, dd.MM | HH:mm")'\
@@ -85,7 +85,7 @@ prompt_confirm "This will install the dotfiles in this repo. Continue?"
 if ! command -v brew &> /dev/null
 then
     echo "Installing homebrew..."
-    sudo -H NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
 # install homebrew apps
@@ -112,7 +112,7 @@ chsh -s $(which fish)
 
 # show manuel steps
 echo "Please do the following steps manually:"
-for step in "${manuel_steps[@]}"
+for step in "${manual_steps[@]}"
 do
     echo - $step
 done
