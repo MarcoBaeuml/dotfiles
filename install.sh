@@ -82,10 +82,16 @@ add_app_to_dock() {
 prompt_confirm "This will install the dotfiles in this repo. Continue?"
 
 # install homebrew
-if ! command -v brew &> /dev/null
+if ! command -v brew &> /dev/null 
 then
     echo "Installing homebrew..."
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+    PATH="/opt/homebrew/bin":$PATH
+    export PATH
+
+else
+    echo "Homebrew already installed"
 fi
 
 # install homebrew apps
